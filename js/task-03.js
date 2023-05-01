@@ -17,10 +17,12 @@ const list = document.querySelector(`.gallery`)
 list.style.display = `flex`;
 list.style.flexDirection = `column`;
 const result = [];
-images.forEach(({url, alt}) => 
-result.push(
-  `<li><img src= "${url}" alt= "${alt}"width= "400px"</img>`
-  )
+const galleryList = images.map(({url, alt}) => {
+return`
+  <li>
+  <img src= "${url}" alt= "${alt}"width= "400px"</img>
+  </li>`
+  }
 );
 
-list.insertAdjacentHTML(`afterbegin`, result)
+list.insertAdjacentHTML(`afterbegin`, galleryList.join(''))
